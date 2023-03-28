@@ -18,7 +18,7 @@ function App() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        let response = await makeRequest({promt: input})
+        let response = await makeRequest({prompt: input})
         response = response.data.split('\n').map(line => <p>{line}</p>);
         setChatLog([...chatLog, {
             user: 'me',
@@ -42,12 +42,12 @@ function App() {
                 </div>
                 <div className="chat-input-holder">
                     <form onSubmit={handleSubmit}>
-                        <input autoFocus={true}
+                        <input
                             rows="1"
                             className="chat-input-textarea"
                             value={input}
-                            onChange={e => setInput(e.target.value)}
-                            />
+                            onChange={e =>setInput(e.target.value)}
+                        ></input>
                     </form>
                 </div>
             </section>
